@@ -1,0 +1,11 @@
+.pydeps/
+.pydeps_fix/
+external_data/
+__MACOSX/
+outputs/
+__pycache__/
+*.pyc
+*.csv
+*.xlsx
+*.pdf
+!README.md

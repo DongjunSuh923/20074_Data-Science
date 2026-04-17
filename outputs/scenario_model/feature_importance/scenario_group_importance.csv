@@ -1,0 +1,7 @@
+model_name,feature_group,importance_sum
+random_forest,external_state_economy,1065.6361677421974
+random_forest,internal_route_structure,2207.8480242605033
+random_forest,internal_time,2.2737367544323207e-14
+xgboost,external_state_economy,1331.6643509898033
+xgboost,internal_route_structure,2765.4469791836045
+xgboost,internal_time,0.0

@@ -1,0 +1,9 @@
+stage,candidate,split,rmse,r2
+Initial lag-free model,XGBoost(raw),validation,444.064,0.8837
+Initial lag-free model,XGBoost(raw),test_2023,540.365,0.8308
+Initial lag-free model,RandomForest(raw),test_2024,835.4419,0.6008
+Compact feature selection,XGBoost + rf_population,test_2023,509.1484,0.8498
+Compact feature selection,RandomForest + rf_population,test_2024,676.5496,0.7382
+Joeun candidate eval,XGBoost + plus_accidents,validation,426.1026,0.8929
+Joeun candidate eval,XGBoost + plus_accidents,test_2023,454.5093,0.8803
+Joeun candidate eval,RandomForest + plus_both,test_2024,629.5699,0.7733
