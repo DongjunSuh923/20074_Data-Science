@@ -4,6 +4,6 @@ Initial lag-free model,XGBoost(raw),test_2023,540.365,0.8308
 Initial lag-free model,RandomForest(raw),test_2024,835.4419,0.6008
 Compact feature selection,XGBoost + rf_population,test_2023,509.1484,0.8498
 Compact feature selection,RandomForest + rf_population,test_2024,676.5496,0.7382
-Joeun candidate eval,XGBoost + plus_accidents,validation,426.1026,0.8929
-Joeun candidate eval,XGBoost + plus_accidents,test_2023,454.5093,0.8803
-Joeun candidate eval,RandomForest + plus_both,test_2024,629.5699,0.7733
+Retrain (2018-2021 train),XGBoost + plus_accidents,validation,403.991,0.9037
+Retrain (2018-2021 train),XGBoost + plus_accidents,test_2023,434.8214,0.8905
+Retrain (2018-2021 train),RandomForest + plus_both,test_2024,471.6994,0.8727

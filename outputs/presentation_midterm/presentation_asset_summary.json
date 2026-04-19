@@ -1,6 +1,7 @@
 {
   "yearly_total_tons": "C:\\Users\\\uc11c\ub3d9\uc900\\IdeaProjects\\FAF5.7.1_2018-2024\\outputs\\presentation_midterm\\01_yearly_total_tons.png",
   "lag_dominance_validation": "C:\\Users\\\uc11c\ub3d9\uc900\\IdeaProjects\\FAF5.7.1_2018-2024\\outputs\\presentation_midterm\\02_lag_dominance_validation_rmse.png",
+  "lag_feature_example_route": "C:\\Users\\\uc11c\ub3d9\uc900\\IdeaProjects\\FAF5.7.1_2018-2024\\outputs\\presentation_midterm\\08_lag_feature_example_route.png",
   "lag_free_model_comparison": "C:\\Users\\\uc11c\ub3d9\uc900\\IdeaProjects\\FAF5.7.1_2018-2024\\outputs\\presentation_midterm\\03_lag_free_model_comparison.png",
   "population_impact": "C:\\Users\\\uc11c\ub3d9\uc900\\IdeaProjects\\FAF5.7.1_2018-2024\\outputs\\presentation_midterm\\04_population_feature_rmse_delta.png",
   "feature_set_selection": "C:\\Users\\\uc11c\ub3d9\uc900\\IdeaProjects\\FAF5.7.1_2018-2024\\outputs\\presentation_midterm\\05_feature_set_avg_rmse.png",

@@ -1,0 +1,29 @@
+{
+  "elapsed_seconds": 1011.4832942485809,
+  "results": [
+    {
+      "model_name": "random_forest",
+      "feature_set": "plus_both",
+      "split": "validation",
+      "rmse": 307.826070861156,
+      "mae": 36.64567805810235,
+      "r2": 0.9440912360937118
+    },
+    {
+      "model_name": "random_forest",
+      "feature_set": "plus_both",
+      "split": "test_2023",
+      "rmse": 322.55911938088974,
+      "mae": 37.76667363368784,
+      "r2": 0.9397235791426187
+    },
+    {
+      "model_name": "random_forest",
+      "feature_set": "plus_both",
+      "split": "test_2024",
+      "rmse": 471.69944155881024,
+      "mae": 46.51783932365614,
+      "r2": 0.8727291427301294
+    }
+  ]
+}

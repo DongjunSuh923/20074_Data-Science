@@ -1,0 +1,29 @@
+{
+  "elapsed_seconds": 516.6672632694244,
+  "results": [
+    {
+      "model_name": "xgboost",
+      "feature_set": "plus_accidents",
+      "split": "validation",
+      "rmse": 403.9910338654226,
+      "mae": 45.7956210441317,
+      "r2": 0.903703046976394
+    },
+    {
+      "model_name": "xgboost",
+      "feature_set": "plus_accidents",
+      "split": "test_2023",
+      "rmse": 434.8214223232248,
+      "mae": 45.886870536302055,
+      "r2": 0.8904655652060139
+    },
+    {
+      "model_name": "xgboost",
+      "feature_set": "plus_accidents",
+      "split": "test_2024",
+      "rmse": 620.1113616837401,
+      "mae": 58.071191034497964,
+      "r2": 0.7800430837211935
+    }
+  ]
+}

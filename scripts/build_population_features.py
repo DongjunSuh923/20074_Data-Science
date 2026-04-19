@@ -10,6 +10,7 @@ import pandas as pd
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 POP_XLSX = PROJECT_ROOT / "outputs" / "external_features" / "nst-est2020int-pop.xlsx"
 POP_CSV = PROJECT_ROOT / "outputs" / "external_features" / "NST-EST2025-POPCHG2020-2025.csv"
+JOEUN_POP_CSV = PROJECT_ROOT / "outputs" / "external_features" / "joeun" / "data" / "state_population_2018_2024.csv"
 SCENARIO_INPUT = PROJECT_ROOT / "outputs" / "scenario_model" / "scenario_dataset_state_to_state.csv"
 OUTPUT_DIR = PROJECT_ROOT / "outputs" / "scenario_model" / "population_features"
 
@@ -68,6 +69,40 @@ def load_post2020() -> pd.DataFrame:
 
 
 def build_population_table() -> pd.DataFrame:
+    if JOEUN_POP_CSV.exists():
+        fred_pop = pd.read_csv(JOEUN_POP_CSV)
+        fred_pop["year"] = pd.to_datetime(fred_pop["observation_date"]).dt.year
+        fred_pop = fred_pop.rename(columns={"Population": "population", "State": "state_abbr"})
+        state_lookup = pd.read_csv(
+            PROJECT_ROOT / "outputs" / "preprocessing_truck_only" / "lookups" / "state_lookup.csv",
+            dtype={"state_fips": "string"},
+        )
+        state_lookup["state_fips"] = state_lookup["state_fips"].str.zfill(2)
+        abbr_lookup = pd.DataFrame(
+            {
+                "state_abbr": [
+                    "AL","AK","AZ","AR","CA","CO","CT","DE","DC","FL","GA","HI","ID","IL","IN","IA","KS","KY","LA","ME",
+                    "MD","MA","MI","MN","MS","MO","MT","NE","NV","NH","NJ","NM","NY","NC","ND","OH","OK","OR","PA","RI",
+                    "SC","SD","TN","TX","UT","VT","VA","WA","WV","WI","WY",
+                ],
+                "state_fips": [
+                    "01","02","04","05","06","08","09","10","11","12","13","15","16","17","18","19","20","21","22","23",
+                    "24","25","26","27","28","29","30","31","32","33","34","35","36","37","38","39","40","41","42","44",
+                    "45","46","47","48","49","50","51","53","54","55","56",
+                ],
+            }
+        )
+        pop = (
+            fred_pop.merge(abbr_lookup, on="state_abbr", how="left")
+            .merge(state_lookup, on="state_fips", how="left")
+            [["state_fips", "state_name", "year", "population"]]
+            .copy()
+        )
+        pop["population"] = pd.to_numeric(pop["population"], errors="coerce")
+        pop = pop.sort_values(["state_fips", "year"])
+        pop["population_growth"] = pop.groupby("state_fips")["population"].pct_change()
+        return pop
+
     a = load_intercensal()
     b = load_post2020()
     combined = pd.concat([a, b], ignore_index=True)

@@ -72,6 +72,48 @@ def plot_lag_dominance() -> Path:
     return fig_path
 
 
+def plot_lag_feature_example() -> Path:
+    df = pd.read_csv(
+        PROJECT_ROOT / "outputs" / "features_truck_only" / "feature_dataset_model_ready_with_splits.csv",
+        low_memory=False,
+    )
+    group_cols = ["dms_orig", "dms_dest", "sctg2", "dist_band", "trade_type"]
+    counts = (
+        df.groupby(group_cols)["year"]
+        .nunique()
+        .reset_index(name="year_count")
+    )
+    candidates = counts[counts["year_count"] >= 5].copy()
+    merged = df.merge(candidates[group_cols], on=group_cols, how="inner")
+    totals = (
+        merged.groupby(group_cols, as_index=False)["target_tons"]
+        .sum()
+        .sort_values("target_tons", ascending=False)
+    )
+    sample_key = totals.iloc[0][group_cols].to_dict()
+    sample = merged.copy()
+    for col, value in sample_key.items():
+        sample = sample[sample[col] == value]
+    sample = sample.sort_values("year")
+
+    fig_path = OUTPUT_DIR / "08_lag_feature_example_route.png"
+    plt.figure(figsize=(9.2, 4.8))
+    plt.plot(sample["year"], sample["target_tons"], marker="o", linewidth=2.4, label="target_tons", color="#1f77b4")
+    plt.plot(sample["year"], sample["tons_lag1"], marker="s", linewidth=2.0, linestyle="--", label="tons_lag1", color="#f58518")
+    plt.plot(sample["year"], sample["tons_lag2"], marker="^", linewidth=2.0, linestyle=":", label="tons_lag2", color="#54a24b")
+    title = (
+        f"Lag Feature Example: dms_orig {sample_key['dms_orig']} -> dms_dest {sample_key['dms_dest']}, "
+        f"sctg2 {sample_key['sctg2']}"
+    )
+    plt.title(title)
+    plt.xlabel("Year")
+    plt.ylabel("Tons")
+    plt.grid(alpha=0.25)
+    plt.legend()
+    savefig(fig_path)
+    return fig_path
+
+
 def plot_scenario_model_comparison() -> Path:
     df = pd.read_csv(PROJECT_ROOT / "outputs" / "scenario_model" / "scenario_model_results.csv")
     df = df[df["target_name"] == "raw"].copy()
@@ -146,15 +188,12 @@ def plot_joeun_candidate_comparison() -> Path:
 
 
 def plot_final_candidate_comparison() -> Path:
-    rows = [
-        {"candidate": "RF + plus_both", "split": "validation", "rmse": 484.72124436042037},
-        {"candidate": "RF + plus_both", "split": "test_2023", "rmse": 499.84769107452524},
-        {"candidate": "RF + plus_both", "split": "test_2024", "rmse": 629.5698729424729},
-        {"candidate": "XGB + plus_accidents", "split": "validation", "rmse": 426.10256330466575},
-        {"candidate": "XGB + plus_accidents", "split": "test_2023", "rmse": 454.5093361083875},
-        {"candidate": "XGB + plus_accidents", "split": "test_2024", "rmse": 690.8291897622305},
-    ]
-    df = pd.DataFrame(rows)
+    df = pd.read_csv(PROJECT_ROOT / "outputs" / "scenario_model" / "retrain_2018_train" / "final_candidate_retrain_results.csv")
+    df = df[
+        ((df["model_name"] == "random_forest") & (df["feature_set"] == "plus_both"))
+        | ((df["model_name"] == "xgboost") & (df["feature_set"] == "plus_accidents"))
+    ].copy()
+    df["candidate"] = df["model_name"].map({"random_forest": "RF + plus_both", "xgboost": "XGB + plus_accidents"})
     pivot = df.pivot(index="candidate", columns="split", values="rmse").loc[
         ["RF + plus_both", "XGB + plus_accidents"]
     ]
@@ -176,9 +215,9 @@ def build_metrics_table() -> Path:
         {"stage": "Initial lag-free model", "candidate": "RandomForest(raw)", "split": "test_2024", "rmse": 835.4419, "r2": 0.6008},
         {"stage": "Compact feature selection", "candidate": "XGBoost + rf_population", "split": "test_2023", "rmse": 509.1484, "r2": 0.8498},
         {"stage": "Compact feature selection", "candidate": "RandomForest + rf_population", "split": "test_2024", "rmse": 676.5496, "r2": 0.7382},
-        {"stage": "Joeun candidate eval", "candidate": "XGBoost + plus_accidents", "split": "validation", "rmse": 426.1026, "r2": 0.8929},
-        {"stage": "Joeun candidate eval", "candidate": "XGBoost + plus_accidents", "split": "test_2023", "rmse": 454.5093, "r2": 0.8803},
-        {"stage": "Joeun candidate eval", "candidate": "RandomForest + plus_both", "split": "test_2024", "rmse": 629.5699, "r2": 0.7733},
+        {"stage": "Retrain (2018-2021 train)", "candidate": "XGBoost + plus_accidents", "split": "validation", "rmse": 403.9910, "r2": 0.9037},
+        {"stage": "Retrain (2018-2021 train)", "candidate": "XGBoost + plus_accidents", "split": "test_2023", "rmse": 434.8214, "r2": 0.8905},
+        {"stage": "Retrain (2018-2021 train)", "candidate": "RandomForest + plus_both", "split": "test_2024", "rmse": 471.6994, "r2": 0.8727},
     ]
     df = pd.DataFrame(rows)
     df.to_csv(METRICS_CSV, index=False)
@@ -190,6 +229,7 @@ def main() -> None:
     assets = {
         "yearly_total_tons": str(plot_yearly_total_tons()),
         "lag_dominance_validation": str(plot_lag_dominance()),
+        "lag_feature_example_route": str(plot_lag_feature_example()),
         "lag_free_model_comparison": str(plot_scenario_model_comparison()),
         "population_impact": str(plot_population_impact()),
         "feature_set_selection": str(plot_feature_set_selection()),
@@ -210,6 +250,7 @@ def main() -> None:
         "## Suggested Use",
         "- 01: preprocessing and EDA trend slide",
         "- 02: lag dominance problem slide",
+        "- 08: first modeling attempt slide for explaining how lag features were constructed",
         "- 03: lag-free official model comparison slide",
         "- 04: population/per-capita GDP experiment slide",
         "- 05: compact feature set selection slide",

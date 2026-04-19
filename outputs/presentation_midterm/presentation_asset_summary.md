@@ -3,6 +3,7 @@
 ## Generated Assets
 - yearly_total_tons: C:\Users\서동준\IdeaProjects\FAF5.7.1_2018-2024\outputs\presentation_midterm\01_yearly_total_tons.png
 - lag_dominance_validation: C:\Users\서동준\IdeaProjects\FAF5.7.1_2018-2024\outputs\presentation_midterm\02_lag_dominance_validation_rmse.png
+- lag_feature_example_route: C:\Users\서동준\IdeaProjects\FAF5.7.1_2018-2024\outputs\presentation_midterm\08_lag_feature_example_route.png
 - lag_free_model_comparison: C:\Users\서동준\IdeaProjects\FAF5.7.1_2018-2024\outputs\presentation_midterm\03_lag_free_model_comparison.png
 - population_impact: C:\Users\서동준\IdeaProjects\FAF5.7.1_2018-2024\outputs\presentation_midterm\04_population_feature_rmse_delta.png
 - feature_set_selection: C:\Users\서동준\IdeaProjects\FAF5.7.1_2018-2024\outputs\presentation_midterm\05_feature_set_avg_rmse.png
@@ -13,6 +14,7 @@
 ## Suggested Use
 - 01: preprocessing and EDA trend slide
 - 02: lag dominance problem slide
+- 08: first modeling attempt slide for explaining how lag features were constructed
 - 03: lag-free official model comparison slide
 - 04: population/per-capita GDP experiment slide
 - 05: compact feature set selection slide

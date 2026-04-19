@@ -1,0 +1,33 @@
+{
+  "results_path": "C:\\Users\\\uc11c\ub3d9\uc900\\IdeaProjects\\FAF5.7.1_2018-2024\\outputs\\scenario_model\\retrain_2018_train\\final_candidate_retrain_results.csv",
+  "elapsed_seconds": 2868.4982528686523,
+  "best_by_split": [
+    {
+      "split": "test_2023",
+      "model_name": "random_forest",
+      "feature_set": "plus_both",
+      "row_count": 173612,
+      "rmse": 322.55911938088974,
+      "mae": 37.76667363368784,
+      "r2": 0.9397235791426187
+    },
+    {
+      "split": "test_2024",
+      "model_name": "random_forest",
+      "feature_set": "plus_both",
+      "row_count": 173612,
+      "rmse": 471.69944155881024,
+      "mae": 46.51783932365614,
+      "r2": 0.8727291427301294
+    },
+    {
+      "split": "validation",
+      "model_name": "random_forest",
+      "feature_set": "plus_both",
+      "row_count": 173612,
+      "rmse": 307.82607086115604,
+      "mae": 36.64567805810235,
+      "r2": 0.9440912360937118
+    }
+  ]
+}
