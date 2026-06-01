@@ -1,0 +1,7 @@
+{
+  "grain_cases": "C:\\Users\\서동준\\IdeaProjects\\FAF5.7.1_2018-2024\\outputs\\scenario_model\\grain_supply_shock\\grain_supply_state_blocking_cases.csv",
+  "grain_scores": "C:\\Users\\서동준\\IdeaProjects\\FAF5.7.1_2018-2024\\outputs\\scenario_model\\grain_supply_shock\\grain_supply_state_scores.csv",
+  "grain_summary": "C:\\Users\\서동준\\IdeaProjects\\FAF5.7.1_2018-2024\\outputs\\scenario_model\\grain_supply_shock\\simulation_results\\grain_supply_simulation_summary.csv",
+  "grain_overlap_summary": "C:\\Users\\서동준\\Downloads\\FAF5.7.1_2018-2024\\outputs\\scenario_model\\grain_supply_overlap_maps\\grain_supply_ngl_overlap_summary.md",
+  "output_doc": "C:\\Users\\서동준\\Downloads\\FAF5.7.1_2018-2024\\outputs\\scenario_model\\grain_supply_visuals\\STRATEGIC_INSIGHTS_GRAIN_SUPPLY_SHOCK.md"
+}

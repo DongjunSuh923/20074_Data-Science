@@ -1,0 +1,6 @@
+state_abbr,tttr_2017,tttr_2018,tttr_2019,tttr_change_pct_2017_2019,bottleneck_count,bottleneck_dpm,bottleneck_congestion_cost,state_fips,tttr_2019_rank_pct,tttr_change_rank_pct,bottleneck_count_rank_pct,bottleneck_dpm_rank_pct,bottleneck_cost_rank_pct,domestic_bottleneck_score,severity,selection_reason,scenario_name
+NY,1.39,1.43,1.47,6.0,4.5,455941.0,362500000.0,36,0.7708333333333334,0.9375,0.90625,0.9583333333333334,0.9583333333333334,90.625,severe,top_domestic_bottleneck_score,domestic_bottleneck_state_blocking
+TX,1.4,1.43,1.44,3.0,10.0,609472.0,477800000.0,48,0.6875,0.6145833333333334,0.9791666666666666,0.9791666666666666,0.9791666666666666,84.79166666666667,medium,high_tttr_and_bottleneck_exposure,domestic_bottleneck_state_blocking
+CA,1.69,1.72,1.71,1.0,18.0,1070251.0,908300000.0,06,0.8541666666666666,0.3333333333333333,1.0,1.0,1.0,83.75,medium,high_tttr_and_bottleneck_exposure,domestic_bottleneck_state_blocking
+VA,1.48,1.58,1.55,5.0,3.5,125077.5,117450000.0,51,0.8333333333333334,0.875,0.8125,0.75,0.8541666666666666,82.5,mild,moderate_broad_congestion_exposure,domestic_bottleneck_state_blocking
+CO,1.37,1.38,1.45,6.0,3.0,159261.0,95400000.0,08,0.7395833333333334,0.9375,0.7604166666666666,0.8125,0.8125,81.25,mild,moderate_broad_congestion_exposure,domestic_bottleneck_state_blocking

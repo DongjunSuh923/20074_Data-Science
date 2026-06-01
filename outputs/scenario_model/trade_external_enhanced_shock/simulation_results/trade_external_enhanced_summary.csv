@@ -1,0 +1,2 @@
+scenario_name,blocked_states,cumulative_network_loss_pct_of_annual_sum,peak_network_loss_pct,peak_network_loss_year,cumulative_interstate_loss_pct_of_annual_sum,peak_interstate_loss_pct,peak_interstate_loss_year
+trade_external_enhanced_state_blocking,"06,13,34,26,17",0.0031751237444573705,0.013167566737793247,2026,0.015394070000180728,0.0627538437943547,2026

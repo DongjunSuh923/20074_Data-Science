@@ -1,0 +1,10 @@
+{
+  "matrix_csv": "C:\\Users\\서동준\\Downloads\\FAF5.7.1_2018-2024\\outputs\\scenario_model\\cross_family_comparison\\cross_family_candidate_matrix.csv",
+  "family_summary_csv": "C:\\Users\\서동준\\Downloads\\FAF5.7.1_2018-2024\\outputs\\scenario_model\\cross_family_comparison\\cross_family_family_summary.csv",
+  "common_candidates_csv": "C:\\Users\\서동준\\Downloads\\FAF5.7.1_2018-2024\\outputs\\scenario_model\\cross_family_comparison\\cross_family_common_candidates.csv",
+  "scenario_only_common_csv": "C:\\Users\\서동준\\Downloads\\FAF5.7.1_2018-2024\\outputs\\scenario_model\\cross_family_comparison\\cross_family_common_scenario_only_candidates.csv",
+  "ngl_only_never_selected_csv": "C:\\Users\\서동준\\Downloads\\FAF5.7.1_2018-2024\\outputs\\scenario_model\\cross_family_comparison\\cross_family_never_selected_ngl_only.csv",
+  "counts_png": "C:\\Users\\서동준\\Downloads\\FAF5.7.1_2018-2024\\outputs\\scenario_model\\cross_family_comparison\\01_cross_family_candidate_counts.png",
+  "heatmap_png": "C:\\Users\\서동준\\Downloads\\FAF5.7.1_2018-2024\\outputs\\scenario_model\\cross_family_comparison\\02_cross_family_presence_heatmap.png",
+  "summary_md": "C:\\Users\\서동준\\Downloads\\FAF5.7.1_2018-2024\\outputs\\scenario_model\\cross_family_comparison\\cross_family_comparison_summary.md"
+}

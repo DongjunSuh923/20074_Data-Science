@@ -1,0 +1,226 @@
+from __future__ import annotations
+
+import json
+import sys
+from pathlib import Path
+
+PROJECT_ROOT = Path(r"C:\Users\서동준\IdeaProjects\FAF5.7.1_2018-2024")
+for dep_dir in [PROJECT_ROOT / ".pydeps"]:
+    if dep_dir.exists() and str(dep_dir) not in sys.path:
+        sys.path.insert(0, str(dep_dir))
+
+import pandas as pd
+import plotly.graph_objects as go
+
+
+MUST_HAVE_PATH = PROJECT_ROOT / "outputs" / "scenario_model" / "state_blocking_resilience" / "provisional_must_have_hubs.csv"
+BASELINE_NEXT10_PATH = PROJECT_ROOT / "outputs" / "scenario_model" / "scenario_next10_hubs" / "scenario_next10_excluding_must_have.csv"
+TIER_A_PATH = PROJECT_ROOT / "outputs" / "scenario_model" / "tier_a_hub_candidates" / "tier_a_final_candidates.csv"
+OUT_DIR = PROJECT_ROOT / "outputs" / "scenario_model" / "hub_strategy_comparison_maps"
+
+ALL_STATES = [
+    "AL","AK","AZ","AR","CA","CO","CT","DE","DC","FL","GA","HI","ID","IL","IN","IA","KS","KY","LA","ME","MD","MA",
+    "MI","MN","MS","MO","MT","NE","NV","NH","NJ","NM","NY","NC","ND","OH","OK","OR","PA","RI","SC","SD","TN","TX",
+    "UT","VT","VA","WA","WV","WI","WY"
+]
+
+STATE_CENTROIDS = {
+    "AL": (32.8, -86.8), "AK": (64.2, -149.5), "AZ": (34.2, -111.7), "AR": (34.9, -92.4),
+    "CA": (37.2, -119.7), "CO": (39.0, -105.5), "CT": (41.6, -72.7), "DE": (39.0, -75.5),
+    "DC": (38.9, -77.0), "FL": (28.4, -82.4), "GA": (32.7, -83.3), "HI": (20.8, -156.3),
+    "ID": (44.2, -114.5), "IL": (40.0, -89.2), "IN": (39.9, -86.3), "IA": (42.1, -93.5),
+    "KS": (38.5, -98.0), "KY": (37.5, -85.3), "LA": (31.2, -92.3), "ME": (45.3, -69.0),
+    "MD": (39.0, -76.7), "MA": (42.2, -71.8), "MI": (44.3, -85.6), "MN": (46.0, -94.3),
+    "MS": (32.7, -89.7), "MO": (38.5, -92.5), "MT": (46.9, -110.0), "NE": (41.5, -99.7),
+    "NV": (39.3, -116.6), "NH": (43.7, -71.6), "NJ": (40.1, -74.5), "NM": (34.4, -106.1),
+    "NY": (42.9, -75.5), "NC": (35.5, -79.0), "ND": (47.5, -100.5), "OH": (40.3, -82.8),
+    "OK": (35.6, -97.5), "OR": (43.9, -120.6), "PA": (41.0, -77.5), "RI": (41.7, -71.5),
+    "SC": (33.8, -80.9), "SD": (44.4, -100.2), "TN": (35.8, -86.4), "TX": (31.5, -99.3),
+    "UT": (39.3, -111.7), "VT": (44.1, -72.7), "VA": (37.5, -78.7), "WA": (47.4, -120.7),
+    "WV": (38.6, -80.6), "WI": (44.6, -89.6), "WY": (43.0, -107.6),
+}
+
+NGL_CURRENT = {
+    "AL","AZ","CA","CO","CT","FL","IA","IL","IN","KS","KY","LA","MA","MI","MN","MO","MS","NE","NV",
+    "NY","OH","OK","OR","PA","RI","SD","TN","TX","WA","WI"
+}
+
+
+def save_fig(fig: go.Figure, html_path: Path, png_path: Path) -> None:
+    fig.write_html(str(html_path), include_plotlyjs="cdn")
+    try:
+        fig.write_image(str(png_path), width=1200, height=760, scale=2)
+    except Exception:
+        pass
+
+
+def label_trace(states: list[str], color: str = "#111111") -> go.Scattergeo:
+    lats = [STATE_CENTROIDS[s][0] for s in states]
+    lons = [STATE_CENTROIDS[s][1] for s in states]
+    return go.Scattergeo(
+        locationmode="USA-states",
+        lat=lats,
+        lon=lons,
+        mode="text",
+        text=states,
+        textfont=dict(size=11, color=color, family="Arial Black"),
+        hoverinfo="skip",
+        showlegend=False,
+    )
+
+
+def base_map_layout(title: str) -> dict:
+    return dict(
+        title=title,
+        geo=dict(scope="usa", projection_type="albers usa", showland=True, landcolor="#F5F5F5"),
+        margin=dict(l=20, r=20, t=70, b=20),
+        legend=dict(orientation="h", yanchor="bottom", y=0.01, xanchor="center", x=0.5),
+    )
+
+
+def build_state_frame() -> pd.DataFrame:
+    return pd.DataFrame({"state_abbr": ALL_STATES})
+
+
+def ngl_map() -> tuple[go.Figure, list[str]]:
+    df = build_state_frame()
+    df["category"] = df["state_abbr"].map(lambda s: "NGL Terminal" if s in NGL_CURRENT else "Other")
+    colors = {"NGL Terminal": "#2563EB", "Other": "#E5E7EB"}
+    z = df["category"].map({"Other": 0, "NGL Terminal": 1})
+    fig = go.Figure()
+    for cat, val in [("Other", 0), ("NGL Terminal", 1)]:
+        sub = df.loc[df["category"] == cat]
+        fig.add_trace(
+            go.Choropleth(
+                locations=sub["state_abbr"],
+                z=[val] * len(sub),
+                locationmode="USA-states",
+                colorscale=[[0, colors[cat]], [1, colors[cat]]],
+                showscale=False,
+                showlegend=True,
+                name=cat,
+                marker_line_color="white",
+                marker_line_width=0.8,
+                hovertemplate="%{location}<extra>" + cat + "</extra>",
+            )
+        )
+    fig.add_trace(label_trace(sorted(NGL_CURRENT), color="#0F172A"))
+    fig.update_layout(**base_map_layout("NGL Current Terminal Footprint"))
+    return fig, sorted(NGL_CURRENT)
+
+
+def baseline_map() -> tuple[go.Figure, list[str]]:
+    must_have = set(pd.read_csv(MUST_HAVE_PATH)["state"].astype(str))
+    baseline_next10 = pd.read_csv(BASELINE_NEXT10_PATH)
+    baseline_next10 = baseline_next10.loc[baseline_next10["scenario_name"] == "baseline_no_shock"]
+    next10 = set(baseline_next10["state_abbr"].astype(str))
+
+    df = build_state_frame()
+    def cat(s: str) -> str:
+        if s in must_have:
+            return "Must-have Core"
+        if s in next10:
+            return "Baseline Next 10"
+        return "Other"
+    df["category"] = df["state_abbr"].map(cat)
+    colors = {"Must-have Core": "#B91C1C", "Baseline Next 10": "#F59E0B", "Other": "#E5E7EB"}
+    fig = go.Figure()
+    for cat_name, val in [("Other", 0), ("Baseline Next 10", 1), ("Must-have Core", 2)]:
+        sub = df.loc[df["category"] == cat_name]
+        fig.add_trace(
+            go.Choropleth(
+                locations=sub["state_abbr"],
+                z=[val] * len(sub),
+                locationmode="USA-states",
+                colorscale=[[0, colors[cat_name]], [1, colors[cat_name]]],
+                showscale=False,
+                showlegend=True,
+                name=cat_name,
+                marker_line_color="white",
+                marker_line_width=0.8,
+                hovertemplate="%{location}<extra>" + cat_name + "</extra>",
+            )
+        )
+    labels = sorted(must_have | next10)
+    fig.add_trace(label_trace(labels, color="#111827"))
+    fig.update_layout(**base_map_layout("Pre-Scenario Model Importance Placement"))
+    return fig, labels
+
+
+def scenario_map() -> tuple[go.Figure, list[str]]:
+    must_have = set(pd.read_csv(MUST_HAVE_PATH)["state"].astype(str))
+    tier_a = set(pd.read_csv(TIER_A_PATH)["state_abbr"].astype(str))
+    df = build_state_frame()
+    def cat(s: str) -> str:
+        if s in must_have:
+            return "Must-have Core"
+        if s in tier_a:
+            return "Tier A Expansion"
+        return "Other"
+    df["category"] = df["state_abbr"].map(cat)
+    colors = {"Must-have Core": "#B91C1C", "Tier A Expansion": "#16A34A", "Other": "#E5E7EB"}
+    fig = go.Figure()
+    for cat_name, val in [("Other", 0), ("Tier A Expansion", 1), ("Must-have Core", 2)]:
+        sub = df.loc[df["category"] == cat_name]
+        fig.add_trace(
+            go.Choropleth(
+                locations=sub["state_abbr"],
+                z=[val] * len(sub),
+                locationmode="USA-states",
+                colorscale=[[0, colors[cat_name]], [1, colors[cat_name]]],
+                showscale=False,
+                showlegend=True,
+                name=cat_name,
+                marker_line_color="white",
+                marker_line_width=0.8,
+                hovertemplate="%{location}<extra>" + cat_name + "</extra>",
+            )
+        )
+    labels = sorted(must_have | tier_a)
+    fig.add_trace(label_trace(labels, color="#111827"))
+    fig.update_layout(**base_map_layout("Scenario-Based Final Placement: Must-have + Tier A"))
+    return fig, labels
+
+
+def main() -> None:
+    OUT_DIR.mkdir(parents=True, exist_ok=True)
+
+    ngl_fig, ngl_labels = ngl_map()
+    baseline_fig, baseline_labels = baseline_map()
+    scenario_fig, scenario_labels = scenario_map()
+
+    save_fig(
+        ngl_fig,
+        OUT_DIR / "01_ngl_current_terminal_map.html",
+        OUT_DIR / "01_ngl_current_terminal_map.png",
+    )
+    save_fig(
+        baseline_fig,
+        OUT_DIR / "02_pre_scenario_importance_map.html",
+        OUT_DIR / "02_pre_scenario_importance_map.png",
+    )
+    save_fig(
+        scenario_fig,
+        OUT_DIR / "03_scenario_final_placement_map.html",
+        OUT_DIR / "03_scenario_final_placement_map.png",
+    )
+
+    metadata = {
+        "ngl_current_html": str(OUT_DIR / "01_ngl_current_terminal_map.html"),
+        "ngl_current_png": str(OUT_DIR / "01_ngl_current_terminal_map.png"),
+        "pre_scenario_html": str(OUT_DIR / "02_pre_scenario_importance_map.html"),
+        "pre_scenario_png": str(OUT_DIR / "02_pre_scenario_importance_map.png"),
+        "scenario_final_html": str(OUT_DIR / "03_scenario_final_placement_map.html"),
+        "scenario_final_png": str(OUT_DIR / "03_scenario_final_placement_map.png"),
+        "ngl_labels": ngl_labels,
+        "baseline_labels": baseline_labels,
+        "scenario_labels": scenario_labels,
+    }
+    (OUT_DIR / "hub_strategy_comparison_maps_metadata.json").write_text(
+        json.dumps(metadata, ensure_ascii=False, indent=2),
+        encoding="utf-8",
+    )
+
+
+if __name__ == "__main__":
+    main()

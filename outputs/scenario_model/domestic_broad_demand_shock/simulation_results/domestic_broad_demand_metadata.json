@@ -1,0 +1,14 @@
+{
+  "summary": {
+    "scenario_name": "domestic_broad_demand_state_blocking",
+    "blocked_states": "12,48,06,36,53",
+    "cumulative_network_loss_pct_of_annual_sum": 0.0015166749590250167,
+    "peak_network_loss_pct": 0.006304643196436885,
+    "peak_network_loss_year": 2026,
+    "cumulative_interstate_loss_pct_of_annual_sum": 0.0073533513544186005,
+    "peak_interstate_loss_pct": 0.0300465987533429,
+    "peak_interstate_loss_year": 2026
+  },
+  "next15_csv": "C:\\Users\\서동준\\Downloads\\FAF5.7.1_2018-2024\\outputs\\scenario_model\\domestic_broad_demand_shock\\simulation_results\\domestic_broad_demand_next15_excluding_must_have.csv",
+  "rankings_csv": "C:\\Users\\서동준\\Downloads\\FAF5.7.1_2018-2024\\outputs\\scenario_model\\domestic_broad_demand_shock\\simulation_results\\domestic_broad_demand_hub_rankings_2031.csv"
+}

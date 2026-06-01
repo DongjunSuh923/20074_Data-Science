@@ -1,0 +1,6 @@
+{
+  "candidate_set_csv": "C:\\Users\\서동준\\Downloads\\FAF5.7.1_2018-2024\\outputs\\scenario_model\\final_reinforcement_candidates\\final_reinforcement_candidate_set.csv",
+  "commodity_roles_csv": "C:\\Users\\서동준\\Downloads\\FAF5.7.1_2018-2024\\outputs\\scenario_model\\final_reinforcement_candidates\\final_reinforcement_candidate_commodity_roles.csv",
+  "state_roles_csv": "C:\\Users\\서동준\\Downloads\\FAF5.7.1_2018-2024\\outputs\\scenario_model\\final_reinforcement_candidates\\final_reinforcement_candidate_state_roles.csv",
+  "reference_md": "C:\\Users\\서동준\\Downloads\\FAF5.7.1_2018-2024\\outputs\\scenario_model\\final_reinforcement_candidates\\FINAL_REINFORCEMENT_CANDIDATE_REFERENCE.md"
+}

@@ -1,0 +1,19 @@
+state_abbr,tier,is_ngl_current,family_count,scenario_count_total,best_rank,avg_rank
+SD,Conditional watchlist,True,3,5,5,9.6
+NV,Conditional watchlist,True,3,5,8,11.2
+UT,Conditional watchlist,False,3,4,12,13.75
+SC,Conditional watchlist,False,3,3,6,11.67
+ND,Conditional watchlist,False,3,3,12,12.67
+NM,Conditional watchlist,False,2,5,10,13.4
+NJ,Conditional watchlist,False,2,2,1,1.0
+NC,Core expansion,False,4,8,1,9.75
+VA,Core expansion,False,4,6,2,11.33
+MN,Robust internal reinforcement,True,4,8,1,5.25
+WA,Robust internal reinforcement,True,4,8,1,4.12
+NE,Robust internal reinforcement,True,4,8,2,3.25
+CO,Robust internal reinforcement,True,4,8,3,8.75
+KS,Robust internal reinforcement,True,4,8,4,7.75
+OR,Secondary internal reinforcement,True,4,7,5,7.29
+WI,Secondary internal reinforcement,True,4,7,5,8.71
+AL,Secondary internal reinforcement,True,4,6,4,7.5
+LA,Secondary internal reinforcement,True,3,7,1,4.29

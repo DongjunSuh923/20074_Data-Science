@@ -1,0 +1,2 @@
+scenario_name,blocked_states,cumulative_network_loss_pct_of_annual_sum,peak_network_loss_pct,peak_network_loss_year,cumulative_interstate_loss_pct_of_annual_sum,peak_interstate_loss_pct,peak_interstate_loss_year
+domestic_broad_demand_state_blocking,"12,48,06,36,53",0.0015166749590250167,0.006304643196436885,2026,0.0073533513544186005,0.0300465987533429,2026

@@ -1,0 +1,9 @@
+category,source,data_used,note
+trade_external_enhanced,Census STNAICS,state exports 2018-2025,existing first-pass trade source reused
+trade_external_enhanced,Census ISTNAICS,state imports 2018-2025,newly downloaded enhancement source
+trade_external_enhanced,USTR China Section 301,China trade-war overlay weight,used to weight China exposure
+trade_external_enhanced,USTR Section 232 Canada/Mexico,Canada and Mexico trade-war overlay weight,used to weight non-China trade-war exposure
+domestic_broad_demand,BEA SASUMMARY,real GDP 2024,used in demand score
+domestic_broad_demand,BEA SASUMMARY,real PCE 2024,used in demand score
+domestic_broad_demand,BEA SASUMMARY,total employment 2024,used in demand score
+domestic_broad_demand,BEA SASUMMARY,2021-2024 growth of GDP PCE employment,used in demand score

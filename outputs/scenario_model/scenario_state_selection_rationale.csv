@@ -1,0 +1,31 @@
+scenario_family,scenario_name,state_abbr,state_fips,severity,selection_basis,primary_exposure_signal,why_selected
+Capacity shock,snow_heat_state_blocking,TX,48,severe,hazard exposure,snow_heat composite score,Heat and weather-related statewide disruption exposure ranked highest in the first-pass snow/heat composite.
+Capacity shock,snow_heat_state_blocking,CA,06,medium,hazard exposure,snow_heat composite score,Large-state weather stress exposure remained high enough to justify medium blocking in the snow/heat family.
+Capacity shock,snow_heat_state_blocking,SD,46,medium,hazard exposure,snow_heat composite score,Snow/temperature-related disruption exposure ranked near the top among contiguous states.
+Capacity shock,snow_heat_state_blocking,MN,27,mild,hazard exposure,snow_heat composite score,Cold-weather and snow disruption exposure justified inclusion as a mild state.
+Capacity shock,snow_heat_state_blocking,IA,19,mild,hazard exposure,snow_heat composite score,Weather disruption exposure and central network relevance made Iowa a mild blocking case.
+Capacity shock,tornado_state_blocking,TX,48,severe,hazard exposure,tornado count and damage,Texas combined high tornado exposure with large network relevance and ranked first in the tornado family.
+Capacity shock,tornado_state_blocking,MS,28,medium,hazard exposure,tornado count and damage,Mississippi showed high tornado-specific event and damage exposure.
+Capacity shock,tornado_state_blocking,OK,40,medium,hazard exposure,tornado count and damage,Oklahoma is a core tornado-exposed state and ranked near the top in the tornado shock family.
+Capacity shock,tornado_state_blocking,IL,17,mild,hazard exposure,tornado count and damage,Illinois retained meaningful tornado exposure while also touching major freight flows.
+Capacity shock,tornado_state_blocking,IA,19,mild,hazard exposure,tornado count and damage,Iowa remained exposed enough to enter as a mild tornado blocking case.
+Capacity shock,wildfire_smoke_state_blocking,CA,06,severe,hazard exposure,burn / smoke composite score,California dominated the wildfire and smoke exposure ranking and therefore anchors the severe blocking case.
+Capacity shock,wildfire_smoke_state_blocking,TX,48,medium,hazard exposure,burn / smoke composite score,Texas combined broad network importance with elevated wildfire-related disruption exposure.
+Capacity shock,wildfire_smoke_state_blocking,CO,08,medium,hazard exposure,burn / smoke composite score,Colorado showed strong wildfire/smoke exposure in the first-pass hazard mix.
+Capacity shock,wildfire_smoke_state_blocking,OK,40,mild,hazard exposure,burn / smoke composite score,Oklahoma retained sufficient wildfire-related exposure to enter as a mild case.
+Capacity shock,wildfire_smoke_state_blocking,WA,53,mild,hazard exposure,burn / smoke composite score,Washington showed meaningful wildfire/smoke exposure with interstate relevance.
+Commodity-specific supply shock,grain_supply_state_blocking,IA,19,severe,commodity supply exposure,grain production plus drought,Iowa is a core grain producer and therefore the most direct severe grain supply shock state.
+Commodity-specific supply shock,grain_supply_state_blocking,TX,48,medium,commodity supply exposure,grain production plus drought,Texas remained relevant because large agricultural exposure overlaps with drought vulnerability.
+Commodity-specific supply shock,grain_supply_state_blocking,NE,31,medium,commodity supply exposure,grain production plus drought,Nebraska is a major grain-producing state with direct cereal supply relevance.
+Commodity-specific supply shock,grain_supply_state_blocking,IL,17,mild,commodity supply exposure,grain production plus drought,Illinois is a high-volume grain state and remains important even at mild severity.
+Commodity-specific supply shock,grain_supply_state_blocking,MN,27,mild,commodity supply exposure,grain production plus drought,Minnesota enters as a meaningful but lower-severity grain supply exposure state.
+Demand shock,construction_infra_state_blocking,TX,48,severe,sector demand exposure,highway spending and material demand,Texas ranked first because highway spending and construction-material demand are both extremely large.
+Demand shock,construction_infra_state_blocking,FL,12,medium,sector demand exposure,highway spending and material demand,Florida has strong road spending and construction-related material demand.
+Demand shock,construction_infra_state_blocking,CA,06,medium,sector demand exposure,highway spending and material demand,California remains a high-scale infrastructure and material-demand state.
+Demand shock,construction_infra_state_blocking,PA,42,mild,sector demand exposure,highway spending and material demand,Pennsylvania combines notable infrastructure activity with strong freight relevance.
+Demand shock,construction_infra_state_blocking,IL,17,mild,sector demand exposure,highway spending and material demand,Illinois enters as a mild infrastructure/material demand stress case.
+Trade/external network shock,trade_external_state_blocking,LA,22,severe,trade exposure,total exports plus vessel dependence,Louisiana ranked first because large export scale overlaps with extremely high vessel dependence.
+Trade/external network shock,trade_external_state_blocking,WA,53,medium,trade exposure,China share plus vessel/container dependence,Washington combines meaningful export scale with strong Pacific trade and China exposure.
+Trade/external network shock,trade_external_state_blocking,TX,48,medium,trade exposure,total exports plus vessel dependence,Texas remains highly exposed because export scale is overwhelming and vessel dependence is still large.
+Trade/external network shock,trade_external_state_blocking,CA,06,mild,trade exposure,total exports plus container dependence,California enters because of high export scale and strong containerized trade dependence.
+Trade/external network shock,trade_external_state_blocking,NC,37,mild,trade exposure,China share plus container dependence,North Carolina is smaller in absolute scale but has enough China and container exposure to justify a mild trade shock case.

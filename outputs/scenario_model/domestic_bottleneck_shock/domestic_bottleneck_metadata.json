@@ -1,0 +1,8 @@
+{
+  "scores_csv": "C:\\Users\\서동준\\Downloads\\FAF5.7.1_2018-2024\\outputs\\scenario_model\\domestic_bottleneck_shock\\domestic_bottleneck_state_scores.csv",
+  "cases_csv": "C:\\Users\\서동준\\Downloads\\FAF5.7.1_2018-2024\\outputs\\scenario_model\\domestic_bottleneck_shock\\domestic_bottleneck_state_blocking_cases.csv",
+  "summary_csv": "C:\\Users\\서동준\\Downloads\\FAF5.7.1_2018-2024\\outputs\\scenario_model\\domestic_bottleneck_shock\\domestic_bottleneck_summary.csv",
+  "next15_csv": "C:\\Users\\서동준\\Downloads\\FAF5.7.1_2018-2024\\outputs\\scenario_model\\domestic_bottleneck_shock\\domestic_bottleneck_next15_excluding_must_have.csv",
+  "rankings_csv": "C:\\Users\\서동준\\Downloads\\FAF5.7.1_2018-2024\\outputs\\scenario_model\\domestic_bottleneck_shock\\domestic_bottleneck_hub_rankings_2031.csv",
+  "reference_md": "C:\\Users\\서동준\\Downloads\\FAF5.7.1_2018-2024\\outputs\\scenario_model\\domestic_bottleneck_shock\\DOMESTIC_BOTTLENECK_SHOCK_REFERENCE.md"
+}

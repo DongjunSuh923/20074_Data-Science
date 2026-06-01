@@ -1,0 +1,7 @@
+{
+  "trade_cases": "C:\\Users\\서동준\\IdeaProjects\\FAF5.7.1_2018-2024\\outputs\\scenario_model\\trade_external_shock\\trade_external_state_blocking_cases.csv",
+  "trade_scores": "C:\\Users\\서동준\\IdeaProjects\\FAF5.7.1_2018-2024\\outputs\\scenario_model\\trade_external_shock\\trade_external_state_scores.csv",
+  "trade_summary": "C:\\Users\\서동준\\IdeaProjects\\FAF5.7.1_2018-2024\\outputs\\scenario_model\\trade_external_shock\\simulation_results\\trade_external_simulation_summary.csv",
+  "trade_overlap_summary": "C:\\Users\\서동준\\Downloads\\FAF5.7.1_2018-2024\\outputs\\scenario_model\\trade_external_overlap_maps\\trade_external_ngl_overlap_summary.md",
+  "output_doc": "C:\\Users\\서동준\\Downloads\\FAF5.7.1_2018-2024\\outputs\\scenario_model\\trade_external_visuals\\STRATEGIC_INSIGHTS_TRADE_EXTERNAL_SHOCK.md"
+}

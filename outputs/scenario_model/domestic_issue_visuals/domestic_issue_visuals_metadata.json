@@ -1,0 +1,8 @@
+{
+  "loss_chart_png": "C:\\Users\\서동준\\Downloads\\FAF5.7.1_2018-2024\\outputs\\scenario_model\\domestic_issue_visuals\\01_domestic_issue_loss_comparison.png",
+  "candidate_overlap_png": "C:\\Users\\서동준\\Downloads\\FAF5.7.1_2018-2024\\outputs\\scenario_model\\domestic_issue_visuals\\02_domestic_issue_candidate_overlap.png",
+  "selection_map_png": "C:\\Users\\서동준\\Downloads\\FAF5.7.1_2018-2024\\outputs\\scenario_model\\domestic_issue_visuals\\03_domestic_issue_state_selection_map.png",
+  "selection_map_html": "C:\\Users\\서동준\\Downloads\\FAF5.7.1_2018-2024\\outputs\\scenario_model\\domestic_issue_visuals\\03_domestic_issue_state_selection_map.html",
+  "overlap_csv": "C:\\Users\\서동준\\Downloads\\FAF5.7.1_2018-2024\\outputs\\scenario_model\\domestic_issue_visuals\\domestic_issue_candidate_overlap.csv",
+  "summary_md": "C:\\Users\\서동준\\Downloads\\FAF5.7.1_2018-2024\\outputs\\scenario_model\\domestic_issue_visuals\\STRATEGIC_INSIGHTS_DOMESTIC_ISSUES.md"
+}
