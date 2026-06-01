@@ -1,0 +1,71 @@
+family,state_abbr,scenario_count,avg_rank,best_rank
+Capacity,LA,3,2.3333333333333335,1
+Capacity,MN,3,3.6666666666666665,1
+Capacity,WA,3,5.666666666666667,1
+Capacity,OK,3,2.3333333333333335,2
+Capacity,CO,3,8.666666666666666,3
+Capacity,NE,3,4.333333333333333,4
+Capacity,KS,3,7.0,5
+Capacity,NC,3,8.333333333333334,7
+Capacity,WI,3,9.666666666666666,9
+Capacity,NM,3,14.333333333333334,14
+Capacity,OR,2,8.0,6
+Capacity,AL,2,10.0,7
+Capacity,AR,2,10.5,9
+Capacity,NV,2,12.5,11
+Capacity,UT,2,13.5,12
+Capacity,SD,1,5.0,5
+Capacity,MS,1,6.0,6
+Capacity,IA,1,13.0,13
+Capacity,ND,1,13.0,13
+Capacity,VA,1,15.0,15
+Commodity-specific supply,MN,1,1.0,1
+Commodity-specific supply,NE,1,2.0,2
+Commodity-specific supply,WA,1,3.0,3
+Commodity-specific supply,KS,1,4.0,4
+Commodity-specific supply,WI,1,5.0,5
+Commodity-specific supply,CO,1,6.0,6
+Commodity-specific supply,SD,1,7.0,7
+Commodity-specific supply,LA,1,8.0,8
+Commodity-specific supply,AL,1,9.0,9
+Commodity-specific supply,OR,1,10.0,10
+Commodity-specific supply,IA,1,11.0,11
+Commodity-specific supply,VA,1,12.0,12
+Commodity-specific supply,ND,1,13.0,13
+Commodity-specific supply,SC,1,14.0,14
+Commodity-specific supply,NC,1,15.0,15
+Demand,WA,3,3.6666666666666665,1
+Demand,NC,3,9.0,1
+Demand,NE,3,2.6666666666666665,2
+Demand,VA,3,9.333333333333334,2
+Demand,LA,3,5.0,3
+Demand,MN,3,7.333333333333333,3
+Demand,OR,3,6.666666666666667,5
+Demand,KS,3,8.333333333333334,5
+Demand,CO,3,7.666666666666667,7
+Demand,SD,3,12.0,10
+Demand,AL,2,6.0,4
+Demand,OK,2,7.5,5
+Demand,WI,2,9.0,7
+Demand,NV,2,10.5,8
+Demand,NM,2,12.0,10
+Demand,NJ,1,1.0,1
+Demand,ND,1,12.0,12
+Demand,IA,1,13.0,13
+Demand,UT,1,14.0,14
+Demand,SC,1,15.0,15
+Trade/external network,NJ,1,1.0,1
+Trade/external network,WA,1,2.0,2
+Trade/external network,NE,1,3.0,3
+Trade/external network,AL,1,4.0,4
+Trade/external network,OR,1,5.0,5
+Trade/external network,SC,1,6.0,6
+Trade/external network,GA,1,7.0,7
+Trade/external network,MN,1,8.0,8
+Trade/external network,WI,1,9.0,9
+Trade/external network,NV,1,10.0,10
+Trade/external network,NC,1,11.0,11
+Trade/external network,KS,1,12.0,12
+Trade/external network,VA,1,13.0,13
+Trade/external network,UT,1,14.0,14
+Trade/external network,CO,1,15.0,15

@@ -1,0 +1,8 @@
+state_abbr,scenario_count_total,avg_rank,best_rank,is_ngl_current,is_must_have,Capacity,Commodity-specific supply,Demand,Trade/external network,family_count,construction_hybrid,domestic_bottleneck,domestic_broad_demand,grain_supply,snow_heat,tornado,trade_external_enhanced,wildfire_smoke,scenario_count_matrix
+NC,8,9.75,1,False,False,1,1,1,1,4,1,1,1,1,1,1,1,1,8
+VA,6,11.333333333333334,2,False,False,1,1,1,1,4,1,1,1,1,0,0,1,1,6
+UT,4,13.75,12,False,False,1,0,1,1,3,0,1,0,0,0,1,1,1,4
+SC,3,11.666666666666666,6,False,False,0,1,1,1,3,1,0,0,1,0,0,1,0,3
+ND,3,12.666666666666666,12,False,False,1,1,1,0,3,1,0,0,1,1,0,0,0,3
+NM,5,13.4,10,False,False,1,0,1,0,2,0,1,1,0,1,1,0,1,5
+NJ,2,1.0,1,False,False,0,0,1,1,2,0,1,0,0,0,0,1,0,2
